@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Card from 'react-bootstrap/Card';
 import './style.css';
 
 export default function App() {
@@ -31,20 +32,23 @@ export default function App() {
   return (
     <div className="container">
       {data.data.map(({ id, name, email, gender, status }) => (
-        <div className="col-md-4">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title">{name}</h2>
-              <h4 className="card-text">
+        <Card style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>{id}</Card.Title>
+            <Card.Text>
+              <p>
+                {' '}
+                Name : {name}
+                <br />
                 Email : {email}
                 <br />
                 Gender : {gender}
                 <br />
                 Status : {status}
-              </h4>
-            </div>
-          </div>
-        </div>
+              </p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       ))}
     </div>
   );
